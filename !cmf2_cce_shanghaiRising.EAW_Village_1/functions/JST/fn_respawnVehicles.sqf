@@ -19,7 +19,11 @@ CCO_vehs =
 	[west_truck_3,	false,	(5*60),		{},		1],
 	[west_truck_4,	false,	(5*60),		{},		1],
 	[west_truck_5,	false,	(5*60),		{},		1],
-	[west_truck_6,	false,	(5*60),		{},		1]
+	[west_truck_6,	false,	(5*60),		{},		1],
+	[west_truck_7,	false,	(5*60),		{},		1],
+	[west_truck_8,	false,	(5*60),		{},		1],
+	[west_logi_1,	false,	(5*60),		{},		1],
+	[west_logi_2,	false,	(5*60),		{},		1]
 ];
 
 // Classnames of ground crew

@@ -3,8 +3,47 @@
 #include "\x\cmf\addons\framework\loadouts\undef.hpp" // Reset defines
 
 // ------------------- PASTE BELOW THIS LINE
-
-
+// Camo set
+#define CAMO_UNIFORM "EAW_Type90_SenPrivate_Uniform","EAW_Type90_Uniform"
+#define FTLSL_UNIFORM "EAW_Type90_Sergeant_Uniform"
+#define OFFICER_UNIFORM "EAW_Type90_LT_Uniform"
+#define CAMO_VEST "EAW_Type90_RifleKit_Alt","EAW_Type90_RifleKit","EAW_RJ_RifleKit","EAW_IJA_SMG_Kit","EAW_Type11_AmmoBearer_Kit"
+#define CAMO_BACKPACK "B_Battle_Belt_XL_F"
+#define CAMO_HEADGEAR "EAW_Type92","EAW_Type92_Cover_Net","EAW_Type92_Cover","EAW_Type92_Loose","EAW_Type92_Net"
+#define OFFICER_HEADGEAR "EAW_IJA_Officer_Cap_Wool"
+// Rifle
+#define RIFLE "fow_w_type99"
+#define RIFLE_MAG "EAW_Type38_Magazine:10"
+#define RIFLE_ATTACHMENTS "fow_w_acc_type30_bayo"
+#define AR_ATTACHMENTS RIFLE_ATTACHMENTS
+#define ALT_OPTICS 
+// GL Rifle
+#define GLRIFLE "fow_w_type99"
+#define GLRIFLE_MAG "EAW_Type38_Magazine:10"
+// WARNING - Unknown GL Muzzle [EAW_Type38_Stock2_Bayonet->no2ndMuzzle]
+#define GLRIFLE_MAG_FLARE ""
+#define GLRIFLE_MAG_SMOKE ""
+#define GLRIFLE_MAG_HE ""
+// Carbine
+#define CARBINE "EAW_Type38_Carbine"
+#define CARBINE_MAG "EAW_Type38_Magazine:10"
+// AR
+#define AR "fow_w_type99_lmg"
+#define AR_MAG "fow_30Rnd_77x58:10"
+// AT
+#define AT 
+#define AT_MAG
+// MMG
+#define MMG "fow_w_type99_lmg"
+#define MMG_MAG "fow_30Rnd_77x58:10"
+#define MMG_ATT ""
+// MAT
+#define MAT 
+#define MAT_MAG 
+#define MAT_MAG2 
+#define MAT_OPTIC ""
+// Facewear
+#define GOG 
 
 // -------------------- PASTE ABOVE THIS LINE
 //HMG
@@ -30,11 +69,12 @@
 #define SPOTTER_MAG RIFLE_MAG
 #define SPOTTER_ATTACHMENTS "optic_mrco","bipod_01_f_blk"
 // SMG
-#define SMG CARBINE
-#define SMG_MAG CARBINE_MAG
+#define SMG "fow_w_type100"
+#define SMG_MAG "fow_32Rnd_8x22:6"
 // Pistol
-#define PISTOL "CUP_hgun_Colt1911"
-#define PISTOL_MAG "CUP_7Rnd_45ACP_1911:3"
+#define PISTOL "EAW_Type14"
+#define PISTOL_MAG "EAW_Type14_Magazine:3"
+#define KATANA "WBK_Katana"
 // Grenades
 #define LEADER_GRENADES BASE_FRAG,LEADER_SMOKES,SIDE_CHEM_LIGHT
 // Gear
@@ -44,6 +84,9 @@
 #define LEADER_LINKED BASE_LEADER_LINKED
 #define CARRYALL "B_Carryall_mcamo"
 #define GOG
+
+#define JAPGRENADES "EAW_Type91_Mag:2"
+#define JAPLEADERGRENADES "EAW_Type91_Mag:2","SmokeShell:2"
 
 // Specialized Resupply Vehicle Loadouts
 // Ammo Truck
@@ -97,32 +140,35 @@ class rifleman {// rifleman
   backpack[] = {CAMO_BACKPACK};
   backpackItems[] = {BASE_MEDICAL};
   weapons[] = {RIFLE};
-  magazines[] = {RIFLE_MAG,BASE_GRENADES};
-  items[] = {TOOLS,RADIO_SR};
+  magazines[] = {RIFLE_MAG,JAPGRENADES};
+  items[] = {TOOLS};
   linkedItems[] = {LINKED};
   attachments[] = {RIFLE_ATTACHMENTS};
   opticChoices[] = {ALT_OPTICS};
 //  goggles[] = {GOG};
-  face[] = {F_USA};
+  face[] = {F_P};
 };
 class Fic_Soldier_Carbine: rifleman {// carbine-man
   weapons[] = {CARBINE};
-  magazines[] = {CARBINE_MAG,BASE_GRENADES};
+  magazines[] = {CARBINE_MAG,JAPGRENADES};
+  attachments[] = {"eaw_type30_bayonet_attach"};
 };
 
 
 //Leadership
 class ftl: rifleman {// FTL
+  uniform[] = {FTLSL_UNIFORM};
   weapons[] = {GLRIFLE};
-  magazines[] = {GLRIFLE_MAG,GLRIFLE_MAG_HE,GLRIFLE_MAG_SMOKE,LEADER_GRENADES};
-  items[] += {LEADER_TOOLS,RADIO_MR};
+  magazines[] = {GLRIFLE_MAG,JAPGRENADES};
+  items[] += {LEADER_TOOLS};
   linkedItems[] += {LEADER_LINKED,BINOS};
 };
 class sl: ftl {// SL
-  handguns[] = {PISTOL};
-  magazines[] += {PISTOL_MAG};
-  linkedItems[] = {LINKED,LEADER_LINKED,RANGE_FINDER};
-  items[] += {RADIO_LR};
+  uniform[] = {OFFICER_UNIFORM};
+  headgear[] = {OFFICER_HEADGEAR};
+  weapons[] = {SMG};
+  handguns[] = {KATANA};
+  magazines[] = {SMG_MAG,JAPLEADERGRENADES};
 };
 class plt: sl {// Platoon Leader
 };
@@ -131,14 +177,19 @@ class coy: plt {// CO and PL
 class xo: coy {// XO
 };
 class sgt: plt {// Platoon Sergeant
+  weapons[] = {GLRIFLE};
+  magazines[] = {GLRIFLE_MAG,JAPLEADERGRENADES};
 };
 class uav: rifleman { //UAV
-  backpack[] = {SIDE_UAV_BACKPACK};
-  linkedItems[] += {SIDE_UAV_TERMINAL};
 };
 class fac: coy {// FAC
-  magazines[] = {GLRIFLE_MAG,SIDE_FAC_GRENADES,"Laserbatteries",PISTOL_MAG};
-  linkedItems[] = {LINKED,LEADER_LINKED,"CUP_LRTV"};
+  uniform[] = {CAMO_UNIFORM};
+  headgear[] = {CAMO_HEADGEAR};
+  weapons[] = {GLRIFLE};
+  magazines[] = {GLRIFLE_MAG,SIDE_FAC_GRENADES};
+  handguns[] = {};
+  backpack[] = {"fow_b_torn_radio"};
+  backpackItems[] = {RADIO_LR};
 };
 
 
@@ -146,7 +197,6 @@ class fac: coy {// FAC
 class sm: Fic_Soldier_Carbine {// Medic
   magazines[] = {CARBINE_MAG,MEDIC_GRENADES};
   backpackItems[] = {MEDIC_MEDICAL};
-  items[] += {RADIO_MR,RADIO_LR};
 };
 class plm: sm {// Platoon Medic
 };
@@ -161,6 +211,8 @@ class ar: rifleman {// AR
   handguns[] = {PISTOL};
 };
 class aar: rifleman {// AAR
+  weapons[] = {CARBINE};
+  magazines[] = {CARBINE_MAG,JAPGRENADES};
   backpackItems[] += {AR_MAG};
   linkedItems[] += {BINOS};
 };
@@ -358,7 +410,7 @@ class mine: Fic_eng {// Mine Specialist
 };
 
 class eng: fic_eng {// Logistics Engineer
-  backpackItems[] = {"Toolkit","ACE_EntrenchingTool","ACE_Fortify","ACE_wirecutter"};
+  backpackItems[] = {"Toolkit","ACE_Fortify","ACE_wirecutter"};
 };
 class engl: eng {// Logistics Leader
   weapons[] = {GLRIFLE};
