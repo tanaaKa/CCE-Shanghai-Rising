@@ -12,3 +12,6 @@ opfMaxWaves		= 5;
 publicVariable "opfMaxWaves";
 bluMaxWaves		= 5;
 publicVariable "bluMaxWaves";
+
+// SLow time for SS
+setTimeMultiplier 0.1;
