@@ -1,29 +1,29 @@
 // common defines
 
 // RADIOS
-#define RADIO_SR "ACRE_PRC343"
-#define RADIO_MR "ACRE_PRC148"
-#define RADIO_LR "ACRE_PRC117F"
+#define RADIO_SR ""
+#define RADIO_MR ""
+#define RADIO_LR "ACRE_PRC77"
 
 // GEAR
-#define BASE_MEDICAL "ACE_elasticBandage:2","ACE_packingBandage:2","ACE_tourniquet:2","ACE_splint","kat_aatKit","kat_guedel","kat_chestSeal"
-#define MEDIC_MEDICAL "ACE_packingBandage:20","ACE_elasticBandage:20","ACE_splint:8","ACE_tourniquet:6","ACE_plasmaIV_500:4","kat_accuvac","kat_Pulseoximeter","kat_larynx:2","kat_aatKit:10","kat_guedel:5","kat_stethoscope","kat_chestSeal:10","kat_IO_FAST:5","kat_IV_16:15","ACE_morphine:8","ACE_epinephrine:8","ACE_adenosine:8","kat_Carbonate","kat_Painkiller","kat_nitroglycerin:4","kat_norepinephrine:4","kat_phenylephrine:4","kat_TXA:8","kat_atropine:4","kat_amiodarone:4","kat_naloxone","kat_lidocaine:4"
-#define BASE_TOOLS "ACE_MapTools","ACE_IR_Strobe_item:2","ACE_Flashlight_XL50","ACE_SpraypaintRed","ACE_CableTie:2"
-#define BASE_LEADER_TOOLS "ACE_personalAidKit","ACE_Fortify"
+#define BASE_MEDICAL "ACE_elasticBandage:2","ACE_packingBandage:2","ACE_tourniquet:2","ACE_splint"
+#define MEDIC_MEDICAL "ACE_packingBandage:20","ACE_elasticBandage:20","ACE_splint:8","ACE_tourniquet:6","ACE_bloodIV:5","ACE_morphine:10","ACE_epinephrine:10"
+#define BASE_TOOLS "ACE_MapTools","ACE_CableTie:2","ACE_Fortify","ACE_EntrenchingTool"
+#define BASE_LEADER_TOOLS "ACE_personalAidKit"
 #define BASE_LINKED "ItemMap","ItemCompass","ItemWatch"
-#define BASE_LEADER_LINKED "ACE_microDAGR"
+#define BASE_LEADER_LINKED 
 #define BASE_FRAG "HandGrenade:2"
 #define BASE_SMOKES "SmokeShell:2"
 #define BASE_GRENADES BASE_FRAG,BASE_SMOKES
-#define LEADER_SMOKES BASE_SMOKES,"SmokeShellGreen:2","SmokeShellPurple"
-#define MEDIC_GRENADES BASE_SMOKES,BASE_SMOKES,"SmokeShellPurple:2"
+#define LEADER_SMOKES BASE_SMOKES,"SmokeShellGreen:2"
+#define MEDIC_GRENADES BASE_SMOKES,BASE_SMOKES
 #define CREW_GRENADES BASE_SMOKES,"SmokeShellGreen:2"
 #define BASE_ENG "ACE_DefusalKit"
-#define BASE_EXP "DemoCharge_Remote_Mag:3","SatchelCharge_Remote_Mag:2","ACE_Clacker"
-#define BASE_MINE "ATMine_Range_Mag:2","APERSBoundingMine_Range_Mag:2","APERSMine_Range_Mag:2"
+#define BASE_EXP "SatchelCharge_Remote_Mag:2","ACE_Clacker"
+#define BASE_MINE 
 #define MINE_DETECTOR "ACE_VMM3"
 #define BINOS "Binocular"
-#define RANGE_FINDER "ACE_Vector"
+#define RANGE_FINDER BINOS
 #define BASE_BALLISTICS "ACE_ATragMX","ACE_Kestrel4500"
 #define BASE_ARTILLERY "ACE_artilleryTable",BASE_BALLISTICS
 #define VZ99 "potato_vz99_carryWeapon"

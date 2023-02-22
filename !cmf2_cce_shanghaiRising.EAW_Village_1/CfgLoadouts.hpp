@@ -4,10 +4,10 @@ class CfgLoadouts {
 
 	// Fast, Easy Settings to change loadouts without touching the arrays.  For TVT Balancing.
 	// Allow Zoomed Optics (1 is true, 0 is false) <Anything like a HAMR (4x) optic won't be added, "red dot" would be fine>
-	allowMagnifiedOptics = 0;
+	allowMagnifiedOptics = 1;
 
 	// Allow changeable optics on a global level, note: optic options obey allowMagnifiedOptics rules
-	allowChangeableOptics = 1;
+	allowChangeableOptics = 0;
 
 	// Do Vehicle Loadouts
 	// 1 - Add supplies based on side gear script
@@ -29,7 +29,7 @@ class CfgLoadouts {
 	#include "c\loadouts\blu_gear.hpp"
 	class potato_w 
 	{
-		//#include "c\loadouts\reb_akm_malden.hpp"
+		#include "c\loadouts\blank_BLU.hpp"
 	};
 
 	// INDFOR
@@ -37,12 +37,5 @@ class CfgLoadouts {
 	class potato_i 
 	{
 		//#include "c\loadouts\blank_IND.hpp"
-	};
-
-	// OPFOR
-	#include "c\loadouts\opf_gear.hpp"
-	class potato_e 
-	{
-		//#include "c\loadouts\blank_OPF.hpp"
 	};
 };
