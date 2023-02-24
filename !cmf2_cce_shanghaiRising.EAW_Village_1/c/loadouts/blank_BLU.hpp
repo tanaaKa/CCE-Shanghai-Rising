@@ -138,7 +138,7 @@ class rifleman {// rifleman
   vest[] = {CAMO_VEST};
   headgear[] = {CAMO_HEADGEAR};
   backpack[] = {CAMO_BACKPACK};
-  backpackItems[] = {BASE_MEDICAL};
+  backpackItems[] = {BASE_MEDICAL,"fow_h_ija_hakimachi"};
   weapons[] = {RIFLE};
   magazines[] = {RIFLE_MAG,JAPGRENADES};
   items[] = {TOOLS};
@@ -171,6 +171,7 @@ class sl: ftl {// SL
   magazines[] = {SMG_MAG,JAPLEADERGRENADES};
 };
 class plt: sl {// Platoon Leader
+  backpackItems[] += {RADIO_LR};
 };
 class coy: plt {// CO and PL
 };
@@ -375,16 +376,20 @@ class cc: helicrew {// Crew Chief
 
 //Armor
 class vicc: Fic_Soldier_Carbine {// Crew
-  magazines[] = {CARBINE_MAG,CREW_GRENADES};
-  backpackItems[] = {SIDE_KEY,RADIO_LR,RADIO_MR};
+  weapons[] = {};
+  handguns[] = {PISTOL};
+  headgear[] = {"fow_h_ija_tank_helmet"};
+  magazines[] = {PISTOL_MAG,JAPLEADERGRENADES};
+  backpackItems[] = {SIDE_KEY,RADIO_LR};
   linkedItems[] = {LINKED,LEADER_LINKED,BINOS};
   items[] += {BASE_MEDICAL};
 };
 class vicd: vicc {// Repair Specialist
-  backpackItems[] = {"Toolkit",RADIO_MR,SIDE_KEY};
+  backpackItems[] = {"Toolkit",SIDE_KEY};
   linkedItems[] = {LINKED,LEADER_LINKED};
 };
 class vicl: vicc {// Vehicle Commander
+  uniform[] = {OFFICER_UNIFORM};
 };
 
 
