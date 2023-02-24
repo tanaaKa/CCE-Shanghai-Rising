@@ -3,7 +3,48 @@
 #include "\x\cmf\addons\framework\loadouts\undef.hpp" // Reset defines
 
 // ------------------- PASTE BELOW THIS LINE
-
+// Camo set
+#define CAMO_UNIFORM "EAW_Chinese_Uniform_Private_Green"
+#define OFFICERUNIFORM "EAW_Chinese_Uniform_Major_Green"
+#define OFFICER_HEADGEAR "EAW_Chinese_VisorCap_Green"
+#define LEADER_VEST "EAW_Chinese_MP28_Kit_Dao"
+#define CAMO_VEST "EAW_C96_Vest","EAW_Chinese_Bandolier_Rifle_Grenadier","EAW_NRALeatherCan_1","EAW_Chinese_MP28_Kit","EAW_Chinese_Bandolier_Rifle_Grenade","EAW_ZB_Bandolier"
+#define MEDICVEST "EAW_Chinese_Medic_Bag"
+#define CAMO_BACKPACK "B_Battle_Belt_XL_F"
+#define CAMO_HEADGEAR "EAW_ROC_Brodie_Green"
+// Rifle
+#define RIFLE "EAW_Hanyang88_Base_Bayonet"
+#define RIFLE_MAG "EAW_Hanyang88_Magazine:10"
+#define RIFLE_ATTACHMENTS "EAW_Hanyang_Bayonet_Attach"
+#define AR_ATTACHMENTS RIFLE_ATTACHMENTS
+#define ALT_OPTICS
+// GL Rifle
+#define GLRIFLE "EAW_Hanyang88_Base_Bayonet"
+#define GLRIFLE_MAG "EAW_Hanyang88_Magazine:10"
+// WARNING - Unknown GL Muzzle [EAW_Hanyang88_Base_Bayonet->no2ndMuzzle]
+#define GLRIFLE_MAG_FLARE ""
+#define GLRIFLE_MAG_SMOKE ""
+#define GLRIFLE_MAG_HE ""
+// Carbine
+#define CARBINE "EAW_Hanyang88_Base_Bayonet"
+#define CARBINE_MAG "EAW_Hanyang88_Magazine:10"
+// AR
+#define AR "EAW_Hanyang88_Base_Bayonet"
+#define AR_MAG "EAW_Hanyang88_Magazine:10"
+// AT
+#define AT "EAW_Type89_Discharger"
+#define AT_MAG "EAW_Type89_Grenade_HE:2"
+// MMG
+#define MMG "EAW_Hanyang88_Base_Bayonet"
+#define MMG_MAG "EAW_Hanyang88_Magazine:10"
+#define MMG_ATT "EAW_Hanyang_Bayonet_Attach"
+// MAT
+#define MAT 
+#define MAT_MAG 
+#define MAT_MAG2 
+#define MAT_OPTIC ""
+// Facewear
+#define GOG 
 
 
 // -------------------- PASTE ABOVE THIS LINE
@@ -30,8 +71,8 @@
 #define SPOTTER_MAG RIFLE_MAG
 #define SPOTTER_ATTACHMENTS "optic_mrco","bipod_01_f_blk"
 // SMG
-#define SMG CARBINE
-#define SMG_MAG CARBINE_MAG
+#define SMG "EAW_MP28"
+#define SMG_MAG "EAW_MP28_20_Magazine:5"
 // Pistol
 #define PISTOL "CUP_hgun_Colt1911"
 #define PISTOL_MAG "CUP_7Rnd_45ACP_1911:3"
@@ -44,6 +85,10 @@
 #define LEADER_LINKED BASE_LEADER_LINKED
 #define CARRYALL "B_Carryall_mcamo"
 #define GOG
+#define DAO "EAW_Dao"
+#define CHINESEGRENADES "EAW_Chinese_Grenade_Mag:2"
+#define CHINESELEADERGRENADES CHINESEGRENADES,"SmokeShell:2"
+#define ATGRENADE "EAW_Chinese_Grenade_Bundle_Mag"
 
 // Specialized Resupply Vehicle Loadouts
 // Ammo Truck
@@ -97,34 +142,38 @@ class rifleman {// rifleman
   backpack[] = {CAMO_BACKPACK};
   backpackItems[] = {BASE_MEDICAL};
   weapons[] = {RIFLE};
-  magazines[] = {RIFLE_MAG,BASE_GRENADES};
-  items[] = {TOOLS,RADIO_SR};
+  magazines[] = {RIFLE_MAG,CHINESEGRENADES};
+  items[] = {TOOLS};
   linkedItems[] = {LINKED};
   attachments[] = {RIFLE_ATTACHMENTS};
   opticChoices[] = {ALT_OPTICS};
 //  goggles[] = {GOG};
-  face[] = {F_RUS};
+  face[] = {F_P};
 };
 class Fic_Soldier_Carbine: rifleman {// carbine-man
   weapons[] = {CARBINE};
-  magazines[] = {CARBINE_MAG,BASE_GRENADES};
+  magazines[] = {CARBINE_MAG,CHINESEGRENADES};
 };
 
 
 //Leadership
 class ftl: rifleman {// FTL
   weapons[] = {GLRIFLE};
-  magazines[] = {GLRIFLE_MAG,GLRIFLE_MAG_HE,GLRIFLE_MAG_SMOKE,LEADER_GRENADES};
+  magazines[] = {GLRIFLE_MAG,GLRIFLE_MAG_HE,GLRIFLE_MAG_SMOKE,CHINESEGRENADES};
   items[] += {LEADER_TOOLS,RADIO_MR};
   linkedItems[] += {LEADER_LINKED,BINOS};
 };
 class sl: ftl {// SL
-  handguns[] = {PISTOL};
-  magazines[] += {PISTOL_MAG};
-  linkedItems[] = {LINKED,LEADER_LINKED,RANGE_FINDER};
-  items[] += {RADIO_LR};
+  weapons[] = {SMG};
+  vest[] = {LEADER_VEST};
+  headgear[] = {OFFICER_HEADGEAR};
+  uniform[] = {OFFICER_UNIFORM};
+  handguns[] = {DAO};
+  linkedItems[] = {LINKED,LEADER_LINKED};
+  magazines[] = {SMG_MAG,CHINESELEADERGRENADES};
 };
 class plt: sl {// Platoon Leader
+  backpackItems[] += {RADIO_LR,RADIO_LR};
 };
 class coy: plt {// CO and PL
 };
@@ -133,20 +182,21 @@ class xo: coy {// XO
 class sgt: plt {// Platoon Sergeant
 };
 class uav: rifleman { //UAV
-  backpack[] = {SIDE_UAV_BACKPACK};
-  linkedItems[] += {SIDE_UAV_TERMINAL};
 };
-class fac: coy {// FAC
-  magazines[] = {GLRIFLE_MAG,SIDE_FAC_GRENADES,"Laserbatteries",PISTOL_MAG};
-  linkedItems[] = {LINKED,LEADER_LINKED,"CUP_LRTV"};
+class fac: rifleman {// FAC
+  weapons[] = {RIFLE};
+  magazines[] = {RIFLE_MAG};
+  backpack[] = {"fow_b_us_radio"};
+  backpackItems[] += {RADIO_LR};
+  linkedItems[] = {LINKED,LEADER_LINKED};
 };
 
 
 //Medics
 class sm: Fic_Soldier_Carbine {// Medic
+  vest[] = {MEDICVEST};
   magazines[] = {CARBINE_MAG,MEDIC_GRENADES};
   backpackItems[] = {MEDIC_MEDICAL};
-  items[] += {RADIO_MR,RADIO_LR};
 };
 class plm: sm {// Platoon Medic
 };
@@ -157,8 +207,7 @@ class cm: plm {// Company Medic
 //Infantry
 class ar: rifleman {// AR
   weapons[] = {AR};
-  magazines[] = {AR_MAG,PISTOL_MAG,BASE_GRENADES};
-  handguns[] = {PISTOL};
+  magazines[] = {AR_MAG,PISTOL_MAG,CHINESEGRENADES};
 };
 class aar: rifleman {// AAR
   backpackItems[] += {AR_MAG};
@@ -277,7 +326,6 @@ class mtrag: Fic_Spotter {// Assistant Mortar
 
 //Artillery
 class artl: sl {// Artillery Leader
-  backpack[] = {CARRYALL};
   backpackItems[] += {BASE_ARTILLERY};
 };
 class artg: rifleman {// Artillery Gunner

@@ -36,6 +36,6 @@ class CfgLoadouts {
 	#include "c\loadouts\ind_gear.hpp"
 	class potato_i 
 	{
-		//#include "c\loadouts\blank_IND.hpp"
+		#include "c\loadouts\blank_OPF.hpp"
 	};
 };
