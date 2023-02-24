@@ -23,7 +23,9 @@ CCO_vehs =
 	[west_truck_7,	false,	(5*60),		{},		1],
 	[west_truck_8,	false,	(5*60),		{},		1],
 	[west_logi_1,	false,	(5*60),		{},		1],
-	[west_logi_2,	false,	(5*60),		{},		1]
+	[west_logi_2,	false,	(5*60),		{},		1],
+	[ind_logi_1,	false,	(5*60),		{},		1],
+	[ind_logi_2,	false,	(5*60),		{},		1]
 ];
 
 // Classnames of ground crew
@@ -52,7 +54,7 @@ AllowedAirCrew =
 // Magazines to remove from all vehicles
 VehBannedMagazines =
 [
-	
+	"fow_49Rnd_37mm_HE"
 ];
 
 // Magazines to add to vehicles: [classname, [0], amount]
@@ -60,7 +62,7 @@ VehBannedMagazines =
 // ["CUP_1Rnd_TE1_Green_Tracer_125mm_3BM69_M", [0], 20],
 ReplaceMagazines = 
 [
-	
+	["fow_49Rnd_37mm_HE", [0], 3]
 ];
 
 /*
