@@ -29,8 +29,8 @@
 #define CARBINE "EAW_Hanyang88_Base_Bayonet"
 #define CARBINE_MAG "EAW_Hanyang88_Magazine:10"
 // AR
-#define AR "EAW_Hanyang88_Base_Bayonet"
-#define AR_MAG "EAW_Hanyang88_Magazine:10"
+#define AR "EAW_MP28"
+#define AR_MAG "EAW_MP28_20_Magazine:10"
 // AT
 #define AT "EAW_Type89_Discharger"
 #define AT_MAG "EAW_Type89_Grenade_HE:2"
@@ -59,7 +59,7 @@
 #define HAT_TRI_LO 
 #define HAT_MAG 
 // SAM
-#define SAM "CUP_launch_FIM92Stinger"
+#define SAM 
 #define SAM_MAG 
 #define SAM_MAG2 
 // Sniper Rifle
@@ -74,8 +74,8 @@
 #define SMG "EAW_MP28"
 #define SMG_MAG "EAW_MP28_20_Magazine:5"
 // Pistol
-#define PISTOL "CUP_hgun_Colt1911"
-#define PISTOL_MAG "CUP_7Rnd_45ACP_1911:3"
+#define PISTOL "EAW_C96"
+#define PISTOL_MAG "EAW_C96_Magazine:3"
 // Grenades
 #define LEADER_GRENADES BASE_FRAG,LEADER_SMOKES,SIDE_CHEM_LIGHT
 // Gear
@@ -89,14 +89,6 @@
 #define CHINESEGRENADES "EAW_Chinese_Grenade_Mag:2"
 #define CHINESELEADERGRENADES CHINESEGRENADES,"SmokeShell:2"
 #define ATGRENADE "EAW_Chinese_Grenade_Bundle_Mag"
-
-// Specialized Resupply Vehicle Loadouts
-// Ammo Truck
-class rhs_gaz66_ammo_msv {
-	TransportWeapons[] = {AT,AT,AT};
-	TransportMagazines[] = {RIFLE_MAG,RIFLE_MAG,RIFLE_MAG,RIFLE_MAG,CARBINE_MAG,CARBINE_MAG,GLRIFLE_MAG,GLRIFLE_MAG,AR_MAG,AR_MAG,AR_MAG,AR_MAG,MMG_MAG,MMG_MAG,GLRIFLE_MAG_HE,GLRIFLE_MAG_HE,GLRIFLE_MAG_SMOKE,GLRIFLE_MAG_SMOKE,MAT_MAG,BASE_GRENADES,BASE_GRENADES,BASE_GRENADES,BASE_GRENADES};
-	TransportItems[] = {TOOLKIT};
-};
 
 class Car {
   TransportWeapons[] = {AT};
@@ -159,7 +151,7 @@ class Fic_Soldier_Carbine: rifleman {// carbine-man
 //Leadership
 class ftl: rifleman {// FTL
   weapons[] = {GLRIFLE};
-  magazines[] = {GLRIFLE_MAG,GLRIFLE_MAG_HE,GLRIFLE_MAG_SMOKE,CHINESEGRENADES};
+  magazines[] = {GLRIFLE_MAG,GLRIFLE_MAG_HE,GLRIFLE_MAG_SMOKE,CHINESEGRENADES,ATGRENADE};
   items[] += {LEADER_TOOLS,RADIO_MR};
   linkedItems[] += {LEADER_LINKED,BINOS};
 };
@@ -214,7 +206,7 @@ class aar: rifleman {// AAR
   linkedItems[] += {BINOS};
 };
 class lat: Fic_Soldier_Carbine {// RAT
-  magazines[] += {AT_MAG};
+  magazines[] += {AT_MAG,ATGRENADE};
   launchers[] = {AT};
 };
 class rifleman_02: rifleman {// Grenadier

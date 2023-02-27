@@ -13,7 +13,7 @@ class CfgLoadouts {
 	// 1 - Add supplies based on side gear script
 	// 0 - Leave them to vanilla defaults
 	// -1 - Clear all vehicle inventories
-	setVehicleLoadouts = 1;
+	setVehicleLoadouts = -1;
 
 	// Fallback: use a basic soldiers loadout when the unit's classname isn't found (for Alive spawning random units)
 	useFallback = 1;

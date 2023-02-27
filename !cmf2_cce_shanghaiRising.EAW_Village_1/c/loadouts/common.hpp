@@ -12,7 +12,7 @@
 #define BASE_LEADER_TOOLS "ACE_personalAidKit"
 #define BASE_LINKED "ItemMap","ItemCompass","ItemWatch"
 #define BASE_LEADER_LINKED 
-#define BASE_FRAG "HandGrenade:2"
+#define BASE_FRAG "EAW_Type91_Mag:2"
 #define BASE_SMOKES "SmokeShell:2"
 #define BASE_GRENADES BASE_FRAG,BASE_SMOKES
 #define LEADER_SMOKES BASE_SMOKES,"SmokeShellGreen:2"
